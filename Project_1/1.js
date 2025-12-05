@@ -1,31 +1,44 @@
-function display()
-{
-   const dis=document.querySelector('.form');
-   dis.style.display='flex';
-}
-let arr=[];
-// arr.push("First Name ");
-// arr.push("Last Name ");
-// arr.push("Age ");
+let add=document.getElementById('info');
+let back=document.getElementById('Back');
+let frm = document.getElementsByClassName('form')[0];
+back.addEventListener('click',function(event){
+ //  table.style.display='none';
+   add.style.display='block';
+   frm.style.display='none';
+   event.preventDefault();
+});
+let submit=document.getElementById('btn');
+ add.addEventListener('click',function(){
+     frm.style.display='block';
+     table.style.display='block';
+     
+ });
 
-function output(event){
-     event.preventDefault();
-     const form=document.getElementById('form_element');
-     const formData = new FormData(form);
-     let list='';
-     for(let [name,value] of formData.entries()){
-       // list+=`${name} : ${value}<br>`;
-        arr.push({value:value});
+submit.addEventListener('click',function(event){
+      event.preventDefault();
+      worik();
+      frm.style.display='none';
+});
+function worik(){
+      event.preventDefault();
+     console.log('mouse Clicked');
+     let name = document.getElementById('name').value;
+     let email=document.getElementById('email').value;
+     let address= document.getElementById('address').value;
+     let table=document.getElementById('table');
+     if(name==='' || email==='' || address===''){
+        alert("Please fill the information");
+     //   return ;
      }
-     for(let i=0;i<arr.length;i++){
-        if((i+1)%3==0){
-            list+=`${arr[i].value}   <br>`;
-        }else{
-            list+=`${arr[i].value}     `;
-        }
-     }
-     list+='<br>';
-     let val=document.getElementById('output');
-     val.innerHTML=list;
-     document.querySelector('.form').style.display='none';
+      table.innerHTML+=`
+        <tr>
+             <td>${name}</td>
+             <td>${email}</td>
+             <td>${address}</td>
+             
+        </tr>
+      `;
+      frm.reset();
+     frm.style.display='block';
+     table.style.display='block'
 }

@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="1.css">
-</head>
-<body>
-    
-    <button class="btn" onclick="display()">Add Here</button>
-    <p id="output"></p>
-    <div  class="form">
-        <form action="" id="form_element">
-            <label for="fname">First Name :</label>
-            <input type="text" name="name"><br><br>
-            <label for="lname">Last Name :</label>
-            <input type="text" name="name"><br><br>
-            <label for="age">Age :</label>
-            <input type="number" name="name"><br><br>
-            <input type="submit" value="submit" onclick="output(event)">
-        </form>
-        
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="yt.css" />
+  </head>
+  <body>
+    <table id="table" border="1px">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+      </tr>
+    </table>
+    <form action="" class="form">
+      <input type="text" name="name" placeholder="Name" id="name" />
+      <input type="email" name="name" placeholder="email" id="email" />
+      <input type="text" name="name" placeholder="Address" id="address" />
+      <button type="button" id="btn">Submit</button>
+      <button id="Back">Back</button>
+    </form>
+    <div>
+      <button id="info">Add information</button>
     </div>
-    
-    <script src="1.js"></script>
-</body>
+    <script src="yt.js"></script>
+  </body>
 </html>
