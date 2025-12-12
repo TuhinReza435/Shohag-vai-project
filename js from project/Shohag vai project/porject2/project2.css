@@ -2,10 +2,21 @@
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 #nav_bar{
     background-color:#F85606 ;
     display: flex;
     flex-direction: column;
+    border-radius: 5px;
+    position: fixed;
+     width: 100%;
+    /* position: fixed; */
+        top: 0;
+        left: 0;
+        width: 100%;
+        /* background: #fff; */
+        z-index: 9999;
+     
 }
 #upper{
      display: flex;
@@ -29,6 +40,8 @@
     gap:20px;
     justify-content: center;
     align-items: center;
+    
+    
 }
 .search_box img{
     height: 50px;
@@ -41,6 +54,7 @@
     border: 3px solid goldenrod;
     border-radius: 10px;
     text-align: center;
+    display: fixed;
 }
 #box {
     width: 45px;
@@ -65,6 +79,67 @@ input::placeholder{
     font-size: 30px;
 }
 .search_box span:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease;
+}
+
+.mid_element{
+    margin-top: 120px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.containar{
+    display: flex;
+    flex-wrap: wrap;
+  
+    gap:10px;
+    justify-content: center;
+    justify-items: center;
+}
+.book_items{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #F85606;
+    width: 22%;
+    border-radius: 10px;
+    padding: 5px;
+}
+.containar img{
+   height: 250px;
+   width: auto;
+   margin: 10px;
+   border-radius: 10px;
+   cursor: pointer;
+}
+.name{
+    color: rgb(128, 58, 58);
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+.card_design{
+    background-color:#F85606 ;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border:2px solid aqua;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bolder;
+}
+.book_items:hover {
+    transform: scale(1.03);
+    transition: 0.3s ease;
+}
+/* .book_items :hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+} */
+.card_design:hover {
     transform: scale(1.05);
     transition: 0.3s ease;
 }
