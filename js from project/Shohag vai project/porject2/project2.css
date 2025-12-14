@@ -140,6 +140,7 @@ input::placeholder{
     cursor: pointer;
     text-align: center;
     font-weight: bolder;
+    color: white;
 }
 .book_items:hover {
     transform: scale(1.03);
