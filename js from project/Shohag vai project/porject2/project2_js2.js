@@ -14,40 +14,44 @@
 // });
 const containar = document.querySelector('#First');
 const card = JSON.parse(localStorage.getItem('list')) || [];
-
+let index=1;
 card.forEach(element => {
 
-  // main box
-  const main_div = document.createElement('div');
-  main_div.className = 'per_box';
-  containar.appendChild(main_div);
+         const main_div = document.createElement('div');
+         main_div.className='cart_item';
+         main_div.dataset.id=index;
+         index++;
+         const sub_div1 = document.createElement('span');
+         sub_div1.className='item_name';
+         sub_div1.innerHTML=element;
+         main_div.append(sub_div1);
 
-  // book name
-  const div = document.createElement('div');
-  div.className = 'Card_item';
-  div.innerText = element;
-  main_div.appendChild(div);
+         const item_control = document.createElement('div');
+         item_control.className='item_controls';
+         const btn =document.createElement('button');
+         btn.className='qty_btn decrement';
+         btn.innerHTML='<';
+         item_control.appendChild(btn);
 
-  // input wrapper
-  const input_box = document.createElement('div');
-  input_box.className = 'Myinput';
+         const item_qty = document.createElement('span');
+         item_qty.className='item_qty';
+         item_qty.innerHTML='1';
+         item_control.appendChild(item_qty);
 
-  const input = document.createElement('input');
-  input.type = 'number';
-  input.min = 1;
-  input.max = 15;
-  input.value = 1;
+         const item_decrement = document.createElement('button');
+         item_decrement.className='qty_btn increment';
+         item_decrement.innerHTML='>';
+         item_control.appendChild(item_decrement);
 
-  input_box.appendChild(input);
-  main_div.appendChild(input_box);
 
-  // remove button
-  const remove_box=document.createElement('div');
-  remove_box.className='remove_box';
+         const remove = document.createElement('button');
+         remove.className='remove_btn';
+         remove.innerHTML="Remove";
+         item_control.appendChild(remove);
+         main_div.appendChild(item_control);
 
-  const button = document.createElement('button');
-  button.className = 'button';
-  button.innerText = 'Remove';
-  remove_box.appendChild(button);
-  main_div.appendChild(remove_box);
+
+
+        const outer_div =  document.getElementById('this_main_box');
+        outer_div.appendChild(main_div);
 });

@@ -154,7 +154,35 @@ input::placeholder{
     transform: scale(1.05);
     transition: 0.3s ease;
 }
+.cart_icon {
+    position: relative;
+    font-size: 28px;
+    cursor: pointer;
+}
 
+.cart_icon span {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+
+    min-width: 18px;
+    height: 18px;
+
+    background-color: green;
+    color: white;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 2px solid white;
+
+    line-height: 1;
+}
 
 
 
