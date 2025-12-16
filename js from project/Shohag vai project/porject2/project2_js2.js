@@ -55,3 +55,23 @@ card.forEach(element => {
         const outer_div =  document.getElementById('this_main_box');
         outer_div.appendChild(main_div);
 });
+
+const removeELement =  document.querySelectorAll('.remove_btn');
+
+removeELement.forEach(function(btn){
+      btn.addEventListener('click', function () {
+               const cartName=this.closest('.cart_item');
+               const itemName = cartName.querySelector('.item_name').innerText;
+                
+               let list =JSON.parse(localStorage.getItem('list'))||[];
+               list =list.filter(item=>item!=itemName);
+               localStorage.setItem('list',JSON.stringify(list));
+               cartName.remove();
+
+      });
+});
+
+
+
+
+

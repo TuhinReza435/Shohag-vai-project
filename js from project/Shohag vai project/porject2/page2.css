@@ -1,0 +1,14 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.cart_item{
+    display: flex;
+    gap: 50px;
+    
+}
+.item_controls{
+    display: flex;
+    
+}
