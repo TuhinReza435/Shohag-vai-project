@@ -35,7 +35,7 @@ card.forEach(element => {
 
          const item_qty = document.createElement('span');
          item_qty.className='item_qty';
-         item_qty.innerHTML='1';
+         item_qty.innerHTML='10';
          item_control.appendChild(item_qty);
 
          const item_decrement = document.createElement('button');
@@ -71,6 +71,34 @@ removeELement.forEach(function(btn){
       });
 });
 
+
+const decrement = document.querySelectorAll('.decrement');
+decrement.forEach(function(value){
+      
+            value.addEventListener('click',function(){
+                   const cart_item = this.closest('.cart_item');
+                   const qty=cart_item.querySelector('.item_qty');
+                   let value = parseInt(qty.textContent);
+                   if(value>0){
+                        value--;
+                   }
+                   qty.textContent=value;
+            });
+});
+
+
+const increment = document.querySelectorAll('.increment');
+increment.forEach(function(value){
+    value.addEventListener('click',function(){
+          const cart_item = this.closest('.cart_item');
+          const qty=cart_item.querySelector('.item_qty');
+          let value =  parseInt(qty.textContent);
+          if(value<=15){
+            value++;
+          }
+          qty.textContent=value;
+    });
+});
 
 
 
