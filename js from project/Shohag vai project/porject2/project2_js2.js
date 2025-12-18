@@ -1,105 +1,68 @@
-
-// const cart = JSON.parse(localStorage.getItem('cart')) || [];
-// const container = document.getElementById('First');
-
-
-
-//const { createElement } = require("react");
-
-// cart.forEach(book => {
-//   let element = document.createElement('div');
-//   element.classList.add('element');
-//   element.innerText = book;
-//   container.appendChild(element);
-// });
 const containar = document.querySelector('#First');
 const card = JSON.parse(localStorage.getItem('list')) || [];
-let index=1;
-card.forEach(element => {
+//console.log(card);
+let totalBook = card.length;
+console.log(totalBook);
+localStorage.setItem('totalBook', totalBook);
+card.forEach(function(bookName,index){
+      const BookList = document.createElement("div");
+      BookList.className='Object_list';
 
-         const main_div = document.createElement('div');
-         main_div.className='cart_item';
-         main_div.dataset.id=index;
-         index++;
-         const sub_div1 = document.createElement('span');
-         sub_div1.className='item_name';
-         sub_div1.innerHTML=element;
-         main_div.append(sub_div1);
-
-         const item_control = document.createElement('div');
-         item_control.className='item_controls';
-         const btn =document.createElement('button');
-         btn.className='qty_btn decrement';
-         btn.innerHTML='<';
-         item_control.appendChild(btn);
-
-         const item_qty = document.createElement('span');
-         item_qty.className='item_qty';
-         item_qty.innerHTML='10';
-         item_control.appendChild(item_qty);
-
-         const item_decrement = document.createElement('button');
-         item_decrement.className='qty_btn increment';
-         item_decrement.innerHTML='>';
-         item_control.appendChild(item_decrement);
-
-
-         const remove = document.createElement('button');
-         remove.className='remove_btn';
-         remove.innerHTML="Remove";
-         item_control.appendChild(remove);
-         main_div.appendChild(item_control);
-
-
-
-        const outer_div =  document.getElementById('this_main_box');
-        outer_div.appendChild(main_div);
+      BookList.innerHTML = `<div class="Book_name" id="${index}">${bookName}</div>
+        <div class="control_element">
+           <div class="decrement" onclick="decrement(this)"><</div>
+           <div class="value">1</div>
+           <div class="incriment" onclick="incriment(this)">></div>
+           <button class="remove" onclick="remove(this,${index})">remove</button> 
+      </div> `;
+      const main_div = document.getElementsByClassName('.this_main_box');
+      document.getElementById("this_main_box").appendChild(BookList);
 });
 
-const removeELement =  document.querySelectorAll('.remove_btn');
-
-removeELement.forEach(function(btn){
-      btn.addEventListener('click', function () {
-               const cartName=this.closest('.cart_item');
-               const itemName = cartName.querySelector('.item_name').innerText;
-                
-               let list =JSON.parse(localStorage.getItem('list'))||[];
-               list =list.filter(item=>item!=itemName);
-               localStorage.setItem('list',JSON.stringify(list));
-               cartName.remove();
-
-      });
-});
-
-
-const decrement = document.querySelectorAll('.decrement');
-decrement.forEach(function(value){
+function remove(btn,index){
+      let  totalBook = JSON.parse(localStorage.getItem('totalBook'));
+      let cart_items = btn.closest('.control_element');
+      let remove_items=cart_items.querySelector('.value');
       
-            value.addEventListener('click',function(){
-                   const cart_item = this.closest('.cart_item');
-                   const qty=cart_item.querySelector('.item_qty');
-                   let value = parseInt(qty.textContent);
-                   if(value>0){
-                        value--;
-                   }
-                   qty.textContent=value;
-            });
-});
-
-
-const increment = document.querySelectorAll('.increment');
-increment.forEach(function(value){
-    value.addEventListener('click',function(){
-          const cart_item = this.closest('.cart_item');
-          const qty=cart_item.querySelector('.item_qty');
-          let value =  parseInt(qty.textContent);
-          if(value<=15){
-            value++;
-          }
-          qty.textContent=value;
-    });
-});
-
-
-
-
+    
+      let number =parseInt(remove_items.innerHTML);
+      totalBook-=number;
+      localStorage.setItem('totalBook',totalBook);
+      console.log(totalBook);
+      // console.log(`The index number is ${index}`);
+      btn.parentNode.parentNode.remove();
+      card.splice(index, 1);
+      localStorage.setItem('list', JSON.stringify(card));  
+     
+      
+}
+function incriment(current_chile){
+      let  totalBook = JSON.parse(localStorage.getItem('totalBook'));
+      let child = (current_chile.previousElementSibling);
+      let number =parseInt(child.innerHTML);
+      if(number<10){
+            number++;
+            child.innerHTML=number;
+      }
+      totalBook++;
+      localStorage.setItem('totalBook',totalBook);
+      console.log(totalBook);   
+}
+function decrement(current_chile){
+      let  totalBook = JSON.parse(localStorage.getItem('totalBook'));
+      let child = (current_chile.nextElementSibling);
+      let number =parseInt(child.innerHTML);
+      console.log(number);
+      if(number>1){
+           number--;
+           totalBook--;
+           child.innerHTML=number;
+      }else{
+            remove(current_chile);
+            totalBook--;
+      }
+      
+      
+      localStorage.setItem('totalBook',totalBook);
+      console.log(totalBook); 
+}

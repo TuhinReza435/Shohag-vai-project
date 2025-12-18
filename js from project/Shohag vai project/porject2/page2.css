@@ -7,7 +7,7 @@
 }
 
 /* Single cart item */
-.cart_item {
+.Object_list{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,7 +19,7 @@
 }
 
 /* Item name */
-.item_name {
+.Book_name {
     font-size: 16px;
     font-weight: 600;
     color: #333;
@@ -27,38 +27,44 @@
 }
 
 /* Control section */
-.item_controls {
+.control_element {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
 /* + / - buttons */
-.qty_btn {
-    width: 32px;
-    height: 32px;
+.value {
+    width: 60px;
+    height: 25px;
     border: none;
     border-radius: 6px;
     background: #f1f1f1;
     font-size: 18px;
     cursor: pointer;
     transition: background 0.2s;
+    /* margin-left: -50px;
+    margin-right: -50px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .qty_btn:hover {
     background: #ddd;
 }
 
-/* Quantity text */
-.item_qty {
-    min-width: 28px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 15px;
+.decrement {
+      cursor: pointer;
+      margin-right: 10px;
+}
+.incriment{
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 /* Remove button */
-.remove_btn {
+.remove {
     margin-left: 10px;
     padding: 6px 10px;
     border: none;
