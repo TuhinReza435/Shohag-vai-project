@@ -1,9 +1,9 @@
 const containar = document.querySelector('#First');
 const card = JSON.parse(localStorage.getItem('list')) || [];
-//console.log(card);
-let totalBook = card.length;
-//console.log(totalBook);
+let totalBook = JSON.parse(localStorage.getItem('totalBook')) || card.length;
 localStorage.setItem('totalBook', totalBook);
+
+
 card.forEach(function(bookName,index){
       const BookList = document.createElement("div");
       BookList.className='Object_list';
