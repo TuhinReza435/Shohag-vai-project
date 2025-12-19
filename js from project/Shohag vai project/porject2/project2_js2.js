@@ -2,7 +2,7 @@ const containar = document.querySelector('#First');
 const card = JSON.parse(localStorage.getItem('list')) || [];
 //console.log(card);
 let totalBook = card.length;
-console.log(totalBook);
+//console.log(totalBook);
 localStorage.setItem('totalBook', totalBook);
 card.forEach(function(bookName,index){
       const BookList = document.createElement("div");

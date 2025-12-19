@@ -22,3 +22,8 @@ nam.forEach(function(btn){
 
 
 
+window.addEventListener("storage", function(e) {
+    if (e.key === "totalBook") {
+        cart_items.innerText = e.newValue;
+    }
+});
