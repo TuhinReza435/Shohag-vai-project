@@ -1,0 +1,61 @@
+th,
+td {
+  width: 150px;
+  text-align: center;
+}
+
+th {
+  font-weight: bolder;
+  height: 30px;
+  font-size: 20px;
+}
+
+tr:nth-child(even) {
+  background-color: aqua;
+  color: black;
+}
+
+tr:nth-child(odd) {
+  background-color: black;
+  color: white;
+}
+
+div {
+  text-align: center;
+}
+
+#info {
+  background-color: greenyellow;
+  padding-left: 20px;
+  padding-right: 30px;
+  font-size: 20px;
+  margin: 10px;
+  font-weight: bolder;
+  border-radius: 10px;
+  cursor: pointer;
+
+}
+
+.form {
+  padding: 10px;
+  padding-left: 0px;
+
+}
+
+#btn {
+  background-color: green;
+  cursor: pointer;
+}
+
+#Back {
+  background-color: red;
+  cursor: pointer;
+}
+
+.form {
+  display: none;
+}
+
+#table {
+  display: none;
+}
