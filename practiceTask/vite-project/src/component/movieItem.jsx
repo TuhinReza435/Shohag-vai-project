@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const movieItem = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const movieItem = ({ movie, rateMovies, toggleWatched, deleteMovies }) => {
+  return <div></div>;
 };
 
 export default movieItem;

@@ -4,8 +4,10 @@ import MovieWatch from './component/MovieWatch';
 
 function App() {
   
-  return(
-    <MovieWatch/>
+  return (
+    <div>
+      <MovieWatch />
+    </div>
   );
 }
 
