@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const MovieForm = ({addMovie}) => {
+const MovieForm = ({ addMovie }) => {
   const [movieDate, setMovieData] = useState({
     title: "",
     ott: "",
